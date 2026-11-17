@@ -21,7 +21,7 @@ This section documents the preparation of the virtual machine used for the Windo
 | Virtual Processors | 4 vCPUs |
 | Assigned Memory | 4096 MB (4 GB RAM) |
 | Virtual Hard Disk | 127 GB |
-| Virtual Network | To be documented |
+| Virtual Network | External Virtual Switch |
 
 ## Screenshots
 
