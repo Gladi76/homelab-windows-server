@@ -11,8 +11,7 @@ The verification includes Domain Controller services, SYSVOL and NETLOGON shares
 The available Domain Controllers were listed using:
 
 ```powershell
-Get-ADDomainController -Filter * |
-    Format-Table HostName, IPv4Address, Site, IsGlobalCatalog
+Get-ADDomainController -Filter * | Format-Table HostName, IPv4Address, Site, IsGlobalCatalog
 ```
 
 Verified Domain Controllers:
@@ -27,8 +26,7 @@ Verified Domain Controllers:
 The required services were checked on DC02:
 
 ```powershell
-Get-Service NTDS, DNS, DFSR, Netlogon |
-    Format-Table Name, Status, StartType
+Get-Service NTDS, DNS, DFSR, Netlogon | Format-Table Name, Status, StartType
 ```
 
 All four services were running:
@@ -43,8 +41,7 @@ All four services were running:
 The required network shares were checked using:
 
 ```powershell
-Get-SmbShare |
-    Where-Object Name -in "SYSVOL","NETLOGON"
+Get-SmbShare | Where-Object Name -in "SYSVOL","NETLOGON"
 ```
 
 Both shares were present:
@@ -95,8 +92,7 @@ dcdiag /test:replications /v
 The DNS zones on DC02 were listed using:
 
 ```powershell
-Get-DnsServerZone |
-    Format-Table ZoneName, ZoneType, IsDsIntegrated
+Get-DnsServerZone | Format-Table ZoneName, ZoneType, IsDsIntegrated
 ```
 
 The following Active Directory-integrated zones were present:
@@ -141,3 +137,53 @@ The following components were verified:
 The replication summary reported zero errors on both Domain Controllers.
 
 **Note:** The SYSVOL and NETLOGON shares were confirmed to exist. A separate SYSVOL replication diagnostic is required to verify full DFSR synchronization.
+
+## 9. Domain Controller Connectivity Tests
+
+The connectivity between DC02 and DC01 was verified using PowerShell and Windows diagnostic tools.
+
+### Locate a Domain Controller
+
+```powershell
+nltest /dsgetdc:lab.local
+```
+
+### Test the Secure Channel
+
+```powershell
+Test-ComputerSecureChannel -Verbose
+```
+
+Expected result:
+
+```text
+True
+```
+
+### Test LDAP Connectivity to DC01
+
+```powershell
+Test-NetConnection DC01.lab.local -Port 389
+```
+
+Expected result:
+
+```text
+TcpTestSucceeded : True
+```
+
+### Check Active Directory Replication
+
+```powershell
+repadmin /showrepl DC02
+```
+
+This command displays the replication status and the last replication attempts between the domain controllers.
+
+**Note:** These commands verify domain controller discovery, the domain secure channel, LDAP connectivity, and Active Directory replication.
+
+## Screenshot
+
+<img width="991" height="422" alt="image" src="https://github.com/user-attachments/assets/c1da6b74-14f8-4bc9-aae7-f12cb503bf25" />
+
+
