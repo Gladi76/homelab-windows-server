@@ -81,3 +81,45 @@ Active Directory and DNS services are installed, and DC02 is configured as a Glo
 
 <img width="1002" height="523" alt="Screenshot 2026-11-20 004408" src="https://github.com/user-attachments/assets/932c147f-3922-4564-8826-0765322bc0b8" />
 
+
+## Alternative Method – Promote DC02 Using Server Manager
+
+An additional Domain Controller can also be deployed remotely using the Windows Server Manager on DC01.
+
+Instead of running the promotion command directly on DC02, the administrator can manage the process centrally from DC01.
+
+### Step 1 – Add DC02 to Server Manager
+
+On DC01:
+
+1. Open Server Manager.
+2. Select **Manage → Add Servers**.
+3. Search for `DC02` under the Active Directory tab.
+4. Select DC02 and add it to the server pool.
+
+### Step 2 – Install the Required Roles
+
+If the AD DS and DNS roles are not already installed on DC02:
+
+1. Select **Manage → Add Roles and Features**.
+2. Choose DC02 as the destination server.
+3. Install the following roles:
+   - Active Directory Domain Services (AD DS)
+   - DNS Server
+
+### Step 3 – Promote DC02 to an Additional Domain Controller
+
+1. Open the AD DS notification in Server Manager.
+2. Select **Promote this server to a domain controller**.
+3. Choose **Add a domain controller to an existing domain**.
+4. Enter the existing domain: `lab.local`.
+5. Configure DNS, Global Catalog, and the appropriate Active Directory Site.
+6. Set the Directory Services Restore Mode (DSRM) password.
+7. Run the prerequisite check.
+8. Start the installation.
+
+### Result
+
+DC02 is promoted to an additional writable Domain Controller in the existing `lab.local` domain.
+
+**Note:** This is an alternative graphical administration method. The actual DC02 promotion in this lab environment was performed using PowerShell with `Install-ADDSDomainController`.
