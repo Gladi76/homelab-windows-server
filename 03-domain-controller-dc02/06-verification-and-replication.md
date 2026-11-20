@@ -19,8 +19,8 @@ Verified Domain Controllers:
 
 | Domain Controller | IP Address | Site | Global Catalog |
 |---|---|---|---|
-| DC01.lab.local | 192.168.178.230 | Main-Site | True |
-| DC02.lab.local | 192.168.178.231 | Main-Site | True |
+| DC01.lab.local | 192.168.178.230 | Leipzig | True |
+| DC02.lab.local | 192.168.178.231 | Leipzig | True |
 
 ## 3. Verify Domain Controller Services
 
