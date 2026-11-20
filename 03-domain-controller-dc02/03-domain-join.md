@@ -18,7 +18,7 @@ The command successfully discovered:
 
 - Domain Controller: DC01.lab.local
 - IP Address: 192.168.178.230
-- Site: Sachsen
+- Site: Main-Site
 
 ## 3. Join the Domain
 
