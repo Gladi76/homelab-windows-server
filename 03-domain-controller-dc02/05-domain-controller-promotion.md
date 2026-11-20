@@ -76,3 +76,8 @@ DC02 is now an additional writable Domain Controller.
 DC02 was successfully promoted as an additional Domain Controller in the existing Active Directory domain.
 
 Active Directory and DNS services are installed, and DC02 is configured as a Global Catalog server.
+
+## 7. Screenshot
+
+<img width="1002" height="523" alt="Screenshot 2026-11-20 004408" src="https://github.com/user-attachments/assets/932c147f-3922-4564-8826-0765322bc0b8" />
+
