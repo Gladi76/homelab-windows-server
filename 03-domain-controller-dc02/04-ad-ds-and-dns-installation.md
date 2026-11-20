@@ -45,6 +45,11 @@ DC02 now has the following server roles installed:
 
 The server is prepared for promotion as an additional Domain Controller in the existing domain `lab.local`.
 
+## 6. Screenshot
+
+<img width="1205" height="622" alt="Screenshot 2026-11-20 002157" src="https://github.com/user-attachments/assets/823c67b6-5145-4429-9b45-bd8290c9a411" />
+
+
 ## Technischer Hinweis – Active Directory-Standorte (Sites)
 
 In einer produktiven IT-Umgebung sollten zusätzliche Domänencontroller, die sich an unterschiedlichen physischen Netzwerkstandorten befinden, den entsprechenden Active Directory-Standorten (Sites) zugeordnet werden.
