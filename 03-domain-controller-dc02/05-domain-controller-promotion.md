@@ -18,7 +18,7 @@ The following configuration was used:
 | DNS Server | Installed on DC02 |
 | Global Catalog | Enabled |
 | Read-Only Domain Controller | No |
-| Active Directory Site | Main-Site |
+| Active Directory Site | Leipzig |
 
 ## 3. Configure the DSRM Password
 
@@ -40,7 +40,7 @@ Install-ADDSDomainController `
     -InstallDns `
     -Credential $Credential `
     -ReplicationSourceDC "DC01.lab.local" `
-    -SiteName "Main-Site" `
+    -SiteName "Leipzig" `
     -SafeModeAdministratorPassword $DSRMPassword `
     -NoGlobalCatalog:$false `
     -Force
