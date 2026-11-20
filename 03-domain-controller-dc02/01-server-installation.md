@@ -50,3 +50,9 @@ The server restarted to apply the new computer name.
 ## 5. Result
 
 DC02 was successfully installed with Windows Server 2022 Datacenter Server Core and prepared for the network configuration and domain integration.
+
+## 6. Screenshot
+
+<img width="994" height="528" alt="Screenshot 2026-11-19 234551" src="https://github.com/user-attachments/assets/adba9eb9-2213-4896-969c-8f5a04b01118" />
+<img width="990" height="519" alt="image" src="https://github.com/user-attachments/assets/d249b1e5-87ba-482e-8f43-6d0e08f66cb0" />
+
